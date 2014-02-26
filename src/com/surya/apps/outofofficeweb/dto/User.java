@@ -8,7 +8,6 @@ public class User {
 		NATIVE, THIRD_PARTY
 	}
 	
-	private long id;
 	private String firstName;
 	private String lastName;
 	private String email;
@@ -16,12 +15,6 @@ public class User {
 	private String password;
 	private AccountType accountType;
 	
-	public long getId() {
-		return id;
-	}
-	public void setId(long id) {
-		this.id = id;
-	}
 	public String getFirstName() {
 		return firstName;
 	}
