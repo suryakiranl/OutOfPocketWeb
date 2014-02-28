@@ -11,9 +11,19 @@
 			email : $("#email").val(), 
 			password: $("#password").val() });
 	}
+	function closeNotice() {
+	    $("#msgDiv").fadeOut("slow");
+	}
+	function clearAllFields() {
+		$("#msgDiv").fadeIn("slow");
+        $("#firstName").val("");
+        $("#lastName").val("");
+        $("#email").val("");
+        $("#password").val("");
+	}
 	$(document).ready(function() {
 		$("#addBtn").click(function() {
-			console.log("POST with values:: " + $("#firstName").val() + " : " + $("#lastName").val());
+			console.log("POST with values:: " + $("#firstName").val() + " " + $("#lastName").val());
 			
 			request = $.ajax({
 		        url: "/rest/users",
@@ -27,6 +37,7 @@
 		    request.done(function (response, textStatus, jqXHR){
 		        // log a message to the console
 		        console.log("Hooray, it worked!");
+		        clearAllFields();
 		    });
 
 		    // callback handler that will be called on failure
@@ -42,6 +53,10 @@
 </script>
 </head>
 <body>
+	<div id="msgDiv" style="display: none;">
+    	<span id="messg">Saved Successfully</span>
+    	<a href="#" class="close-notify" onclick="closeNotice()">OK</a>
+	</div>
 	<form id="userForm" action="/rest/users" method="post">
 	<table align="center">
 		<thead>
