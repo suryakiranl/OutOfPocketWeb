@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>List users</title>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+<link rel="stylesheet" href="../css/styles.css" />
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
+<script type="text/javascript" src="../js/messageNotification.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {		
+		request = $.ajax({
+	        url: "/rest/users",
+	        type: "GET",
+	        contentType: 'application/json',
+	        dataType: 'json'
+	    });
+		
+		// callback handler that will be called on success
+	    request.done(function (response, textStatus, jqXHR){
+	        // log a message to the console
+	        console.log("Hooray, it worked!");
+	        console.log("Response obtained:: " + response);
+	        
+	        // Populate the results table on the page.
+	        $("#userListingTbl").append("<tr><td colspan=3 align='center'>" +
+	        "<b>Following is a list of all available users</b></td></tr>");
+	        var headerRow = "<tr>" +
+				"<td><b>First Name</b></td>" +
+				"<td><b>Last Name</b></td>" +
+				"<td><b>Email</b></td>"+
+				"</tr>";
+	        // $("#userListingTbl").append(headerRow); // This works too !!
+	        $(headerRow).appendTo("#userListingTbl > tbody");
+	        $.each(response, function(i, user) {
+	        	  var userRow = "<tr>" +
+					"<td>" + user.firstName + "</td>" +
+					"<td>" + user.lastName  + "</td>" +
+					"<td>" + user.email + "</td>"+
+					"</tr>";	  
+	        	  $("#userListingTbl").append(userRow);
+	        }); 
+	    });
+
+	    // callback handler that will be called on failure
+	    request.fail(function (jqXHR, textStatus, errorThrown){
+	        // log the error to the console
+	        console.error("The following error occured: "+ textStatus, errorThrown
+	        );
+	    });
+	});
+</script>
+</head>
+<body>
+	<form id="userForm" action="/rest/users" method="GET">
+	<table align="center" id="userListingTbl"></table>
+	</form>
+</body>
+</html>

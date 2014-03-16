@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
 <link rel="stylesheet" href="../css/styles.css" />
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
+<script type="text/javascript" src="../js/messageNotification.js"></script>
 <script type="text/javascript">
 	function dataToJSON() {
 		return JSON.stringify({ firstName : $("#firstName").val(),
@@ -11,11 +12,8 @@
 			email : $("#email").val(), 
 			password: $("#password").val() });
 	}
-	function closeNotice() {
-	    $("#msgDiv").fadeOut("slow");
-	}
 	function clearAllFields() {
-		$("#msgDiv").fadeIn("slow");
+		showNotification("User saved successfully");
         $("#firstName").val("");
         $("#lastName").val("");
         $("#email").val("");
@@ -43,21 +41,19 @@
 		    // callback handler that will be called on failure
 		    request.fail(function (jqXHR, textStatus, errorThrown){
 		        // log the error to the console
-		        console.error(
-		            "The following error occured: "+
+		        console.error("The following error occured: "+
 		            textStatus, errorThrown
 		        );
+		        
+		        showNotification("The following error occured: "+
+			            textStatus);
 		    });
 		});
 	});
 </script>
 </head>
 <body>
-	<div id="msgDiv" style="display: none;">
-    	<span id="messg">Saved Successfully</span>
-    	<a href="#" class="close-notify" onclick="closeNotice()">OK</a>
-	</div>
-	<form id="userForm" action="/rest/users" method="post">
+	<form id="userForm" action="/rest/users" method="POST">
 	<table align="center">
 		<thead>
 			<td colspan="2">
