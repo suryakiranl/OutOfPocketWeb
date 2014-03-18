@@ -1,8 +1,5 @@
 package com.surya.apps.outofpocket.business.util;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.surya.apps.outofpocket.business.dto.BaseDTO;
 import com.surya.apps.outofpocket.business.dto.UserDTO;
 import com.surya.apps.outofpocket.data.po.BasePO;
@@ -33,42 +30,18 @@ public final class TOConverter {
 		return dto;
 	}
 
-	public List<BaseDTO> getDTOs(List<BasePO> pos) {
-		List<BaseDTO> dtos = new ArrayList<BaseDTO>();
-
-		for (BasePO po : pos) {
-			if (po instanceof UserPO) {
-				dtos.add(getUserDTO((UserPO) po));
-			}
-		}
-
-		return dtos;
-	}
-
-	public List<BasePO> getPOs(List<BaseDTO> dtos) {
-		List<BasePO> pos = new ArrayList<BasePO>();
-
-		for (BaseDTO dto : dtos) {
-			if (dto instanceof UserDTO) {
-				pos.add(getUserPO((UserDTO) dto));
-			}
-		}
-
-		return pos;
-	}
-
 	public static final void updateWhoColumns(BasePO source, BaseDTO dest) {
+		if(source.getId() != null) dest.setId(source.getId());
 		dest.setCreatedBy(source.getCreatedBy());
 		dest.setCreatedTime(source.getCreatedTime());
-		dest.setId(source.getId());
 		dest.setModifiedBy(source.getModifiedBy());
 		dest.setModifiedTime(source.getModifiedTime());
 	}
 
 	public static final void updateWhoColumns(BaseDTO source, BasePO dest) {
+		if(source.getId() != 0) dest.setId(source.getId());
 		dest.setCreatedBy(source.getCreatedBy());
 		dest.setCreatedTime(source.getCreatedTime());
-		dest.setId(source.getId());
 		dest.setModifiedBy(source.getModifiedBy());
 		dest.setModifiedTime(source.getModifiedTime());
 	}
