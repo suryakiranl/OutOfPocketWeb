@@ -13,17 +13,17 @@ import javax.persistence.MappedSuperclass;
 public class BasePO {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 	private String modifiedBy;
 	private Timestamp modifiedTime;
 	private String createdBy;
 	private Timestamp createdTime;
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -58,5 +58,9 @@ public class BasePO {
 	public void setCreatedTime(Timestamp createdTime) {
 		this.createdTime = createdTime;
 	}
-
+	
+	@Override
+	public String toString() {
+		return "id =" + id + "";
+	}
 }
