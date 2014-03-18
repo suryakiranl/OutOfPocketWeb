@@ -31,4 +31,9 @@ public class UserPO extends NamedPO {
 	public void setActive(boolean active) {
 		this.active = active;
 	}
+
+	@Override
+	public String toString() {
+		return "{UserPO:" + super.toString() + ",email=" + email + "}";
+	}
 }
