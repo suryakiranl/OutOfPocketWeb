@@ -7,22 +7,18 @@
 <script type="text/javascript" src="../js/messageNotification.js"></script>
 <script type="text/javascript">
 	function dataToJSON() {
-		return JSON.stringify({ firstName : $("#firstName").val(),
-			lastName : $("#lastName").val(),
+		return JSON.stringify({ name : $("#displayName").val(),
 			email : $("#email").val(), 
 			password: $("#password").val() });
 	}
 	function clearAllFields() {
 		showNotification("User saved successfully");
-        $("#firstName").val("");
-        $("#lastName").val("");
+        $("#displayName").val("");
         $("#email").val("");
         $("#password").val("");
 	}
 	$(document).ready(function() {
 		$("#addBtn").click(function() {
-			console.log("POST with values:: " + $("#firstName").val() + " " + $("#lastName").val());
-			
 			request = $.ajax({
 		        url: "/rest/users",
 		        type: "POST",
@@ -61,15 +57,11 @@
 			</td>
 		</thead>
 		<tr>
-			<td>First name:</td>
-			<td><input type="text" id="firstName"/></td>
+			<td>Display name:</td>
+			<td><input type="text" id="displayName"/></td>
 		</tr>
 		<tr>
-			<td>Last name:</td>
-			<td><input type="text" id="lastName"/></td>
-		</tr>
-		<tr>
-			<td>Email ID:</td>
+			<td>Email:</td>
 			<td><input type="text" id="email"/></td>
 		</tr>
 		<tr>

@@ -17,23 +17,20 @@
 		// callback handler that will be called on success
 	    request.done(function (response, textStatus, jqXHR){
 	        // log a message to the console
-	        console.log("Hooray, it worked!");
 	        console.log("Response obtained:: " + response);
 	        
 	        // Populate the results table on the page.
-	        $("#userListingTbl").append("<tr><td colspan=3 align='center'>" +
+	        $("#userListingTbl").append("<tr><td colspan=2 align='center'>" +
 	        "<b>Following is a list of all available users</b></td></tr>");
 	        var headerRow = "<tr>" +
-				"<td><b>First Name</b></td>" +
-				"<td><b>Last Name</b></td>" +
+				"<td><b>Display Name</b></td>" +
 				"<td><b>Email</b></td>"+
 				"</tr>";
 	        // $("#userListingTbl").append(headerRow); // This works too !!
 	        $(headerRow).appendTo("#userListingTbl > tbody");
 	        $.each(response, function(i, user) {
 	        	  var userRow = "<tr>" +
-					"<td>" + user.firstName + "</td>" +
-					"<td>" + user.lastName  + "</td>" +
+					"<td>" + user.name + "</td>" +
 					"<td>" + user.email + "</td>"+
 					"</tr>";	  
 	        	  $("#userListingTbl").append(userRow);
