@@ -24,9 +24,6 @@ public class UserService {
 	@Produces( {MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON} )
 	public UserDTO createUser(UserDTO user) {
 		LOG.enter(user);
-		if(user.getAccountType() == null) {
-			user.setAccountType(UserDTO.AccountType.NATIVE);
-		}
 		
 		UserJDO userDao = new UserJDO();
 		if(userDao.save(user)) {
@@ -46,8 +43,7 @@ public class UserService {
 		List<UserDTO> list = new ArrayList<UserDTO>();
 		
 		UserDTO user = new UserDTO();
-		user.setFirstName("Surya");
-		user.setLastName("Kiran");
+		user.setName("Surya Kiran");
 		user.setEmail("surya@cmu.edu");
 		user.setPassword("Passwordaaaa");
 		
