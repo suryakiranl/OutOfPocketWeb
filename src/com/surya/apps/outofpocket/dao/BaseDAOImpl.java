@@ -11,10 +11,10 @@ import com.surya.apps.outofpocket.po.BasePO;
 
 public class BaseDAOImpl<PO extends BasePO> implements IBaseDAO<PO> {
 	private static final Logger log = Logger.get();
-	private BasePO po;
+	private Class<PO> poClass;
 
-	public BaseDAOImpl(BasePO po) {
-		this.po = po;
+	public BaseDAOImpl(Class<PO> po) {
+		this.poClass = po;
 	}
 
 	@Override
@@ -97,6 +97,6 @@ public class BaseDAOImpl<PO extends BasePO> implements IBaseDAO<PO> {
 	}
 
 	protected final String getPOClassName() {
-		return po.getClass().getSimpleName();
+		return poClass.getSimpleName();
 	}
 }

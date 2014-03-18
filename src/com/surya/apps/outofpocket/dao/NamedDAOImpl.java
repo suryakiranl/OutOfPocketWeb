@@ -8,7 +8,7 @@ import com.surya.apps.outofpocket.po.NamedPO;
 
 public class NamedDAOImpl<PO extends NamedPO> extends BaseDAOImpl<PO> implements
 		INamedDAO<PO> {
-	public NamedDAOImpl(NamedPO po) {
+	public NamedDAOImpl(Class<PO> po) {
 		super(po);
 	}
 
