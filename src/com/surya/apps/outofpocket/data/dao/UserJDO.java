@@ -10,6 +10,7 @@ import com.google.appengine.api.datastore.KeyFactory;
 import com.surya.apps.outofpocket.business.dto.UserDTO;
 import com.surya.apps.outofpocket.common.util.Logger;
 
+@Deprecated
 public class UserJDO {
 	private static final Logger LOG = Logger.get();
 	
