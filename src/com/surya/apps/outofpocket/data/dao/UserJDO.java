@@ -13,11 +13,9 @@ import com.surya.apps.outofpocket.common.util.Logger;
 public class UserJDO {
 	private static final Logger LOG = Logger.get();
 	
-	private static final String FIRST_NAME = "firstName";
-	private static final String LAST_NAME = "lastName";
+	private static final String NAME = "name";
 	private static final String EMAIL = "email";
 	private static final String PASSWORD = "password";
-	private static final String ACCT_TYPE = "accountType";
 	
 	private Key getKey(String name) {
 		Key key = KeyFactory.createKey("UserKey", name);
@@ -33,11 +31,9 @@ public class UserJDO {
 		
 		Key userKey = getKey(user.getEmail());
 		Entity userE = new Entity("User", userKey);
-		userE.setProperty(FIRST_NAME, user.getFirstName());
-		userE.setProperty(LAST_NAME, user.getLastName());
+		userE.setProperty(NAME, user.getName());
 		userE.setProperty(EMAIL, user.getEmail());
 		userE.setProperty(PASSWORD, user.getPassword());
-		userE.setProperty(ACCT_TYPE, user.getAccountType().toString());
 		
 		DatastoreService dataStore = DatastoreServiceFactory.getDatastoreService();
 		dataStore.put(userE);
