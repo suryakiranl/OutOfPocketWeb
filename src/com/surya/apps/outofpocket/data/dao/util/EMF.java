@@ -1,4 +1,4 @@
-package com.surya.apps.outofpocket.dao.util;
+package com.surya.apps.outofpocket.data.dao.util;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;

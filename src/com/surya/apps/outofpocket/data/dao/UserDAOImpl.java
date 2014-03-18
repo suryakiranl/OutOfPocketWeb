@@ -1,11 +1,11 @@
-package com.surya.apps.outofpocket.dao;
+package com.surya.apps.outofpocket.data.dao;
 
 import java.util.List;
 
 import javax.persistence.Query;
 
 import com.surya.apps.outofpocket.common.util.Logger;
-import com.surya.apps.outofpocket.po.UserPO;
+import com.surya.apps.outofpocket.data.po.UserPO;
 
 public class UserDAOImpl extends NamedDAOImpl<UserPO> implements
 		IUserDAO<UserPO> {

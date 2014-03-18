@@ -1,8 +1,8 @@
-package com.surya.apps.outofpocket.dao;
+package com.surya.apps.outofpocket.data.dao;
 
 import java.util.List;
 
-import com.surya.apps.outofpocket.po.BasePO;
+import com.surya.apps.outofpocket.data.po.BasePO;
 
 public interface IBaseDAO<PO extends BasePO> {
 	PO save(PO po);

@@ -1,4 +1,4 @@
-package com.surya.apps.outofpocket.dao;
+package com.surya.apps.outofpocket.data.dao;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
+import com.surya.apps.outofpocket.business.dto.UserDTO;
 import com.surya.apps.outofpocket.common.util.Logger;
-import com.surya.apps.outofpocket.dto.UserDTO;
 
 public class UserJDO {
 	private static final Logger LOG = Logger.get();

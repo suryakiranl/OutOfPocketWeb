@@ -1,4 +1,4 @@
-package com.surya.apps.outofpocket.service;
+package com.surya.apps.outofpocket.business.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,9 +11,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.xml.bind.annotation.XmlElementWrapper;
 
+import com.surya.apps.outofpocket.business.dto.UserDTO;
 import com.surya.apps.outofpocket.common.util.Logger;
-import com.surya.apps.outofpocket.dao.UserJDO;
-import com.surya.apps.outofpocket.dto.UserDTO;
+import com.surya.apps.outofpocket.data.dao.UserJDO;
 
 @Path("/users")
 public class UserService {

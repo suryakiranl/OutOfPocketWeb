@@ -1,10 +1,10 @@
-package com.surya.apps.outofpocket.dao;
+package com.surya.apps.outofpocket.data.dao;
 
 import java.util.List;
 
 import javax.persistence.Query;
 
-import com.surya.apps.outofpocket.po.NamedPO;
+import com.surya.apps.outofpocket.data.po.NamedPO;
 
 public class NamedDAOImpl<PO extends NamedPO> extends BaseDAOImpl<PO> implements
 		INamedDAO<PO> {

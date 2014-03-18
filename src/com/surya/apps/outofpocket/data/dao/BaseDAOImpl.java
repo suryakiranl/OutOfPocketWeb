@@ -1,4 +1,4 @@
-package com.surya.apps.outofpocket.dao;
+package com.surya.apps.outofpocket.data.dao;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import com.surya.apps.outofpocket.common.util.Logger;
-import com.surya.apps.outofpocket.dao.util.EMF;
-import com.surya.apps.outofpocket.po.BasePO;
+import com.surya.apps.outofpocket.data.dao.util.EMF;
+import com.surya.apps.outofpocket.data.po.BasePO;
 
 public class BaseDAOImpl<PO extends BasePO> implements IBaseDAO<PO> {
 	private static final Logger log = Logger.get();

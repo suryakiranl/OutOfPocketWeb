@@ -1,4 +1,4 @@
-package com.surya.apps.outofpocket.dto;
+package com.surya.apps.outofpocket.business.dto;
 
 import javax.xml.bind.annotation.XmlRootElement;
 

@@ -1,4 +1,4 @@
-package com.surya.apps.outofpocket.po;
+package com.surya.apps.outofpocket.data.po;
 
 import java.sql.Timestamp;
 
