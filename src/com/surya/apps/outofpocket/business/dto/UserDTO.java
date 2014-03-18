@@ -2,7 +2,7 @@ package com.surya.apps.outofpocket.business.dto;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name="user")
+@XmlRootElement(name = "user")
 public class UserDTO extends NamedDTO {
 	private String email;
 	private String password;
@@ -30,5 +30,10 @@ public class UserDTO extends NamedDTO {
 
 	public void setActive(boolean active) {
 		this.active = active;
+	}
+
+	@Override
+	public String toString() {
+		return "{UserDTO:" + super.toString() + ",email=" + email + "}";
 	}
 }
