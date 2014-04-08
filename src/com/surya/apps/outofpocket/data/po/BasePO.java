@@ -58,9 +58,11 @@ public class BasePO {
 	public void setCreatedTime(Timestamp createdTime) {
 		this.createdTime = createdTime;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "id =" + id + "";
+		return "BasePO [id=" + id + ", modifiedBy=" + modifiedBy
+				+ ", modifiedTime=" + modifiedTime + ", createdBy=" + createdBy
+				+ ", createdTime=" + createdTime + "]";
 	}
 }

@@ -34,6 +34,10 @@ public class UserPO extends NamedPO {
 
 	@Override
 	public String toString() {
-		return "{UserPO:" + super.toString() + ",email=" + email + "}";
+		return "UserPO [email=" + email + ", active=" + active + ", getName()="
+				+ getName() + ", getId()=" + getId() + ", getModifiedBy()="
+				+ getModifiedBy() + ", getModifiedTime()=" + getModifiedTime()
+				+ ", getCreatedBy()=" + getCreatedBy() + ", getCreatedTime()="
+				+ getCreatedTime() + "]";
 	}
 }

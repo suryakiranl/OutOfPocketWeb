@@ -15,9 +15,13 @@ public class NamedPO extends BasePO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	@Override
 	public String toString() {
-		return super.toString() + ",name=" + name;
+		return "NamedPO [name=" + name + ", getId()=" + getId()
+				+ ", getModifiedBy()=" + getModifiedBy()
+				+ ", getModifiedTime()=" + getModifiedTime()
+				+ ", getCreatedBy()=" + getCreatedBy() + ", getCreatedTime()="
+				+ getCreatedTime() + "]";
 	}
 }
