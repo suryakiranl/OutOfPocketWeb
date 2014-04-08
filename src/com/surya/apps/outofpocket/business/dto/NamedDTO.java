@@ -13,6 +13,10 @@ public class NamedDTO extends BaseDTO {
 
 	@Override
 	public String toString() {
-		return super.toString() + ",name=" + name;
+		return "NamedDTO [name=" + name + ", getId()=" + getId()
+				+ ", getModifiedBy()=" + getModifiedBy()
+				+ ", getModifiedTime()=" + getModifiedTime()
+				+ ", getCreatedBy()=" + getCreatedBy() + ", getCreatedTime()="
+				+ getCreatedTime() + "]";
 	}
 }

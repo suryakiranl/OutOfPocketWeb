@@ -48,9 +48,11 @@ public class BaseDTO {
 	public void setCreatedTime(Timestamp createdTime) {
 		this.createdTime = createdTime;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "id=" + id;
+		return "BaseDTO [id=" + id + ", modifiedBy=" + modifiedBy
+				+ ", modifiedTime=" + modifiedTime + ", createdBy=" + createdBy
+				+ ", createdTime=" + createdTime + "]";
 	}
 }

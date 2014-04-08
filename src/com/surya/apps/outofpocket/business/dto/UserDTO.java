@@ -34,6 +34,11 @@ public class UserDTO extends NamedDTO {
 
 	@Override
 	public String toString() {
-		return "{UserDTO:" + super.toString() + ",email=" + email + "}";
+		return "UserDTO [email=" + email + ", password=" + password
+				+ ", active=" + active + ", getName()=" + getName()
+				+ ", getId()=" + getId() + ", getModifiedBy()="
+				+ getModifiedBy() + ", getModifiedTime()=" + getModifiedTime()
+				+ ", getCreatedBy()=" + getCreatedBy() + ", getCreatedTime()="
+				+ getCreatedTime() + "]";
 	}
 }
