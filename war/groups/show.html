@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>List Groups</title>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+<link rel="stylesheet" href="../css/styles.css" />
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
+<script type="text/javascript" src="../js/messageNotification.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {		
+		request = $.ajax({
+	        url: "/rest/groups",
+	        type: "GET",
+	        contentType: 'application/json',
+	        dataType: 'json'
+	    });
+		
+		// callback handler that will be called on success
+	    request.done(function (response, textStatus, jqXHR){
+	        // log a message to the console
+	        console.log("Response obtained:: " + response);
+	        
+	        // Populate the results table on the page.
+	        $("#groupListingTbl").append("<tr><td align='center'>" +
+	        "<b>Following is a list of all available Groups</b></td></tr>");
+	        var headerRow = "<tr>" +
+				"<td><b>Group Name</b></td>" +
+				"</tr>";
+				
+	        $(headerRow).appendTo("#groupListingTbl > tbody");
+	        $.each(response, function(i, group) {
+	        	  var groupRow = "<tr>" +
+					"<td>" + group.name + "</td>" +
+					"</tr>";	  
+	        	  $("#groupListingTbl").append(groupRow);
+	        }); 
+	    });
+
+	    // callback handler that will be called on failure
+	    request.fail(function (jqXHR, textStatus, errorThrown){
+	        // log the error to the console
+	        console.error("The following error occured: "+ textStatus, errorThrown
+	        );
+	    });
+	});
+</script>
+</head>
+<body>
+	<form id="groupForm" action="/rest/groups" method="GET">
+	<table align="center" id="groupListingTbl"></table>
+	</form>
+</body>
+</html>

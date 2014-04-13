@@ -1,0 +1,70 @@
+<html>
+<head>
+<title>Create Group</title>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+<link rel="stylesheet" href="../css/styles.css" />
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
+<script type="text/javascript" src="../js/messageNotification.js"></script>
+<script type="text/javascript">
+	function dataToJSON() {
+		return JSON.stringify({ 
+			name : $("#name").val()		
+		});
+	}
+	function clearAllFields() {
+		showNotification("Group saved successfully");
+        $("#name").val("");
+	}
+	$(document).ready(function() {
+		$("#addBtn").click(function() {
+			request = $.ajax({
+		        url: "/rest/groups",
+		        type: "POST",
+		        contentType: 'application/json',
+		        dataType: 'json',
+		        data: dataToJSON()	
+		    });
+			
+			// callback handler that will be called on success
+		    request.done(function (response, textStatus, jqXHR){
+		        // log a message to the console
+		        console.log("Hooray, it worked!");
+		        clearAllFields();
+		    });
+
+		    // callback handler that will be called on failure
+		    request.fail(function (jqXHR, textStatus, errorThrown){
+		        // log the error to the console
+		        console.error("The following error occured: "+
+		            textStatus, errorThrown
+		        );
+		        
+		        showNotification("The following error occured: "+
+			            textStatus);
+		    });
+		});
+	});
+</script>
+</head>
+<body>
+	<form id="groupForm" action="/rest/groups" method="POST">
+	<table align="center">
+		<thead>
+			<td colspan="2">
+				<b>Please enter the following information to create a group</b>
+			</td>
+		</thead>
+		<tr>
+			<td>Group name:</td>
+			<td><input type="text" id="name"/></td>
+		</tr>
+		<tfoot>
+			<td colspan="2" style="text-align: center;">
+				<button id="addBtn" type="button">Add</button> &nbsp;&nbsp;&nbsp;&nbsp;
+				<button type="reset">Reset</button>
+			</td>
+		</tfoot>
+	</table>
+	</form>
+</body>
+</html>
