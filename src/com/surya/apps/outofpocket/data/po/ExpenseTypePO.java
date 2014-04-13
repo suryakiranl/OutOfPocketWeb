@@ -1,5 +1,8 @@
 package com.surya.apps.outofpocket.data.po;
 
+import javax.persistence.Entity;
+
+@Entity
 public class ExpenseTypePO extends NamedPO {
 	private String description;
 	private Long ownerId;

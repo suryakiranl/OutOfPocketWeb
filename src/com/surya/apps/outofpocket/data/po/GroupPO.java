@@ -1,5 +1,8 @@
 package com.surya.apps.outofpocket.data.po;
 
+import javax.persistence.Entity;
+
+@Entity
 public class GroupPO extends NamedPO {
 	private Long ownerId;
 
@@ -19,4 +22,5 @@ public class GroupPO extends NamedPO {
 				+ ", getCreatedBy()=" + getCreatedBy() + ", getCreatedTime()="
 				+ getCreatedTime() + "]";
 	}
+
 }
