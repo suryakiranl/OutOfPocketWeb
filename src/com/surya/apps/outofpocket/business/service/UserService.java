@@ -41,12 +41,15 @@ public class UserService {
 	@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
 	@XmlElementWrapper(name = "users")
 	public List<UserDTO> findAll() {
+		LOG.enter();
 		List<UserDTO> userDTOs = new ArrayList<UserDTO>();
 		
 		List<UserPO> userPOs = dao.findAll();
 		for(UserPO po : userPOs) {
 			userDTOs.add(TOConverter.getUserDTO(po));
 		}
+		
+		LOG.exit(userDTOs);
 		
 		return userDTOs;
 	}
