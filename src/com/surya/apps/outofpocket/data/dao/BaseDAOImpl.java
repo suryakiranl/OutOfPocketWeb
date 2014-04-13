@@ -24,6 +24,7 @@ public class BaseDAOImpl<PO extends BasePO> implements IBaseDAO<PO> {
 		if (po != null) {
 			EntityManager em = EMF.get().createEntityManager();
 			try {
+				em.getTransaction().begin();
 				// If the object already exists in the system
 				// merge changes
 				if (po.getId() != null && po.getId() != 0) {
@@ -31,7 +32,11 @@ public class BaseDAOImpl<PO extends BasePO> implements IBaseDAO<PO> {
 				} else { // Else, create a new object
 					em.persist(po);
 				}
+				em.getTransaction().commit();
 			} finally {
+				if (em.getTransaction().isActive()) {
+			        em.getTransaction().rollback();
+			    }
 				em.close();
 			}
 		} else {
@@ -69,6 +74,7 @@ public class BaseDAOImpl<PO extends BasePO> implements IBaseDAO<PO> {
 		return po;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<PO> findAll() {
 		List<PO> pos = null;
