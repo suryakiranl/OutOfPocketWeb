@@ -1,5 +1,6 @@
 package com.surya.apps.outofpocket.data.dao;
 
+import com.surya.apps.outofpocket.data.po.GroupPO;
 import com.surya.apps.outofpocket.data.po.UserPO;
 
 public class DAOFactory {
@@ -11,5 +12,9 @@ public class DAOFactory {
 	
 	public final IUserDAO<UserPO> getUserDAO() {
 		return new UserDAOImpl();
+	}
+	
+	public final IGroupDAO<GroupPO> getGroupDAO() {
+		return new GroupDAOImpl();
 	}
 }
