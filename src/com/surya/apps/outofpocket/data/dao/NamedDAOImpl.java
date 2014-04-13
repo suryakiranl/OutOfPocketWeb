@@ -21,15 +21,4 @@ public class NamedDAOImpl<PO extends NamedPO> extends BaseDAOImpl<PO> implements
 
 		return executeQuery(q);
 	}
-
-	@Override
-	public List<PO> findObjectsMatchingNameLike(String name) {
-		final String findObjsMatchingQuery = "select po from "
-				+ getPOClassName() + " po where name like ?";
-
-		Query q = getEntityManager().createQuery(findObjsMatchingQuery);
-		q.setParameter(1, name);
-
-		return executeQuery(q);
-	}
 }
