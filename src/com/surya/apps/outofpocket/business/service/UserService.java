@@ -12,8 +12,8 @@ import javax.ws.rs.core.MediaType;
 import javax.xml.bind.annotation.XmlElementWrapper;
 
 import com.surya.apps.outofpocket.business.dto.UserDTO;
-import com.surya.apps.outofpocket.business.util.TOConverter;
 import com.surya.apps.outofpocket.common.util.Logger;
+import com.surya.apps.outofpocket.common.util.TOConverter;
 import com.surya.apps.outofpocket.data.dao.DAOFactory;
 import com.surya.apps.outofpocket.data.dao.IUserDAO;
 import com.surya.apps.outofpocket.data.po.UserPO;
