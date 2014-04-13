@@ -2,6 +2,9 @@ package com.surya.apps.outofpocket.business.dto;
 
 import java.util.Date;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "expense")
 public class ExpenseDTO extends NamedDTO {
 	private double amount;
 	private Date billDate;

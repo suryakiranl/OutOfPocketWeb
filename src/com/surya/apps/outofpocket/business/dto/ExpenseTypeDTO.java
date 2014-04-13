@@ -1,5 +1,8 @@
 package com.surya.apps.outofpocket.business.dto;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "expense_type")
 public class ExpenseTypeDTO extends NamedDTO {
 	private String description;
 	private Long ownerId;

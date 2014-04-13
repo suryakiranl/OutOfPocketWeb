@@ -1,6 +1,8 @@
 package com.surya.apps.outofpocket.business.dto;
 
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement(name = "group")
 public class GroupDTO extends NamedDTO {
 	private Long ownerId;
 
