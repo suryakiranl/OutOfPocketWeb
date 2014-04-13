@@ -2,6 +2,12 @@ package com.surya.apps.outofpocket.data.po;
 
 import javax.persistence.Entity;
 
+/**
+ * Entity to save Groups in the data store.
+ * 
+ * @author surya
+ *
+ */
 @Entity
 public class GroupPO extends NamedPO {
 	private Long ownerId;

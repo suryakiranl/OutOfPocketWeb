@@ -8,6 +8,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
+/**
+ * Entity base class which contains common attributes and 
+ * functionality for all Persistent Objects in the project.
+ * 
+ * @author surya
+ *
+ */
 @Entity
 @MappedSuperclass
 public class BasePO {

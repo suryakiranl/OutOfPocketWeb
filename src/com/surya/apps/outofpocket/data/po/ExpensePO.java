@@ -6,6 +6,12 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 
+/**
+ * Entity to save Expenses in the data store.
+ * 
+ * @author surya
+ *
+ */
 @Entity
 public class ExpensePO extends NamedPO {
 	private double amount;

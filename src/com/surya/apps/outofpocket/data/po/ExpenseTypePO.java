@@ -2,6 +2,12 @@ package com.surya.apps.outofpocket.data.po;
 
 import javax.persistence.Entity;
 
+/**
+ * Entity to save ExpenseTypes in the data store.
+ * 
+ * @author surya
+ *
+ */
 @Entity
 public class ExpenseTypePO extends NamedPO {
 	private String description;

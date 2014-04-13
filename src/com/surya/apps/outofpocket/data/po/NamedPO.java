@@ -3,6 +3,13 @@ package com.surya.apps.outofpocket.data.po;
 import javax.persistence.Entity;
 import javax.persistence.MappedSuperclass;
 
+/**
+ * Mapped super class for all entities that contain a 
+ * name as part of their properties.
+ * 
+ * @author surya
+ *
+ */
 @Entity
 @MappedSuperclass
 public class NamedPO extends BasePO {

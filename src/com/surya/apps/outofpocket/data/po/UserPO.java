@@ -2,6 +2,12 @@ package com.surya.apps.outofpocket.data.po;
 
 import javax.persistence.Entity;
 
+/**
+ * Persistent Object for Users data store element.
+ * 
+ * @author surya
+ *
+ */
 @Entity
 public class UserPO extends NamedPO {
 	private String email;
