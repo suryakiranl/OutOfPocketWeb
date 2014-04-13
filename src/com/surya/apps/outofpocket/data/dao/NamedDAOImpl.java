@@ -2,10 +2,8 @@ package com.surya.apps.outofpocket.data.dao;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import com.surya.apps.outofpocket.data.dao.util.EMF;
 import com.surya.apps.outofpocket.data.po.NamedPO;
 
 public class NamedDAOImpl<PO extends NamedPO> extends BaseDAOImpl<PO> implements
@@ -16,19 +14,22 @@ public class NamedDAOImpl<PO extends NamedPO> extends BaseDAOImpl<PO> implements
 
 	@Override
 	public List<PO> findByName(String name) {
-		List<PO> pos = null;
+		final String findByNameQuery = "select po from " + getPOClassName()
+				+ " po where name = ?";
+		Query q = getEntityManager().createQuery(findByNameQuery);
+		q.setParameter(1, name);
 
-		EntityManager em = EMF.get().createEntityManager();
-		try {
-			Query q = em.createQuery("select po from " + getPOClassName()
-					+ " po where name = ?");
-			q.setParameter(1, name);
+		return executeQuery(q);
+	}
 
-			pos = q.getResultList();
-		} finally {
-			// em.close();
-		}
+	@Override
+	public List<PO> findObjectsMatchingNameLike(String name) {
+		final String findObjsMatchingQuery = "select po from "
+				+ getPOClassName() + " po where name like ?";
 
-		return pos;
+		Query q = getEntityManager().createQuery(findObjsMatchingQuery);
+		q.setParameter(1, name);
+
+		return executeQuery(q);
 	}
 }
