@@ -6,6 +6,14 @@ import javax.persistence.Query;
 
 import com.surya.apps.outofpocket.data.po.NamedPO;
 
+/**
+ * Generic DAO Base class which all DAOs implementing Named entities
+ * should implement.
+ * 
+ * @author surya
+ *
+ * @param <PO> - Entity Extending NamedPO
+ */
 public class NamedDAOImpl<PO extends NamedPO> extends BaseDAOImpl<PO> implements
 		INamedDAO<PO> {
 	public NamedDAOImpl(Class<PO> po) {
