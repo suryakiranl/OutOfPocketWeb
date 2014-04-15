@@ -4,7 +4,7 @@ import java.util.logging.Level;
 
 /**
  * Utility Logger class used by rest of the project to log information to
- * console or file.
+ * console or file as configured in the application-web.xml file.
  * 
  * @author surya
  * 
