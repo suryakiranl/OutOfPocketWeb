@@ -9,6 +9,14 @@ import com.surya.apps.outofpocket.common.util.Logger;
 import com.surya.apps.outofpocket.data.dao.util.EMF;
 import com.surya.apps.outofpocket.data.po.BasePO;
 
+/**
+ * Base DAO implementation class which has method implementations for 
+ * general operations like - save, find etc.
+ * 
+ * @author surya
+ *
+ * @param <PO> - Any class extending BasePO
+ */
 public class BaseDAOImpl<PO extends BasePO> implements IBaseDAO<PO> {
 	private static final Logger log = Logger.get();
 	private Class<PO> poClass;
